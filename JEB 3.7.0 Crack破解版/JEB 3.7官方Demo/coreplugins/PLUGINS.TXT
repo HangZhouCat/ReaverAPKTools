@@ -1,0 +1,10 @@
+JEB Decompiler (c) PNF Software, Inc. 
+https://www.pnfsoftware.com
+
+This directory contains JEB external plugins. Those are not to be confused with JEB client scripts, written in Python.
+
+All back-end plugins must be written in Java.
+
+-> Visit https://www.pnfsoftware.com/jeb/plugins to download free and open-source plugins.
+-> Visit https://www.pnfsoftware.com/jeb/manual/dev/introducing-jeb-extensions/ to get started on writing your own plugins!
+-> Visit https://www.pnfsoftware.com/jeb/apidoc/reference/com/pnfsoftware/jeb/core/IPlugin.html to see a complete list of plugins types

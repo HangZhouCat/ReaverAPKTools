@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="PNF Software">
+        <link rel="canonical" href="https://www.pnfsoftware.com/jeb2/manual/client-configuration.html">
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Client Configuration - JEB Decompiler</title>
+        <link href="css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://www.pnfsoftware.com/jeb">JEB Decompiler</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="index.html">Getting Started</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using JEB <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="actions.html">Common Actions</a>
+</li>
+                                    
+<li >
+    <a href="views.html">Common Views</a>
+</li>
+                                    
+<li >
+    <a href="decompiling.html">Decompiling</a>
+</li>
+                                    
+<li >
+    <a href="debugging.html">Debugging</a>
+</li>
+                                    
+<li >
+    <a href="android.html">Android App Analysis</a>
+</li>
+                                    
+<li >
+    <a href="android-debugging.html">Android App Debugging</a>
+</li>
+                                    
+<li >
+    <a href="native.html">Native Code Analysis</a>
+</li>
+                                    
+<li >
+    <a href="native-debugging.html">Native Code Debugging</a>
+</li>
+                                    
+<li >
+    <a href="webassembly.html">WebAssembly Modules</a>
+</li>
+                                    
+<li >
+    <a href="ethereum.html">Ethereum Smart Contracts</a>
+</li>
+                                    
+<li >
+    <a href="misc.html">Miscellaneous</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developing with JEB <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="dev/introducing-jeb-extensions.html">Introducing JEB Extensions</a>
+</li>
+                                    
+<li >
+    <a href="dev/writing-client-scripts.html">Writing Client Scripts</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Writing Parsers (Tutorial Series)</a>
+    <ul class="dropdown-menu">
+            
+<li >
+    <a href="dev/1-getting-started-with-parsers.html">Part 1: Getting Started with Parsers</a>
+</li>
+            
+<li >
+    <a href="dev/2-creating-simple-parser.html">Part 2: Creating a Simple Parser</a>
+</li>
+            
+<li >
+    <a href="dev/3-documents-delegation.html">Part 3: Documents and Delegation</a>
+</li>
+            
+<li >
+    <a href="dev/4-tables-trees.html">Part 4: Tables and Trees</a>
+</li>
+            
+<li >
+    <a href="dev/5-development-tips.html">Part 5: Development Tips</a>
+</li>
+            
+<li >
+    <a href="dev/6-releasing-plugin.html">Part 6: Releasing a Plugin</a>
+</li>
+            
+<li >
+    <a href="dev/7-unit-interactivity.html">Part 7: Interactivity</a>
+</li>
+            
+<li >
+    <a href="dev/8-more-interactivity.html">Part 8: More on Interactivity</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="dev/writing-engines-plugins.html">Writing Engines Plugins</a>
+</li>
+                                    
+<li >
+    <a href="dev/writing-front-ends.html">Writing Front-Ends</a>
+</li>
+                                    
+<li >
+    <a href="dev/other-resources.html">Additional Resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="settings.html">Settings</a>
+</li>
+                                    
+<li class="active">
+    <a href="client-configuration.html">Client Configuration</a>
+</li>
+                                    
+<li >
+    <a href="engines-configuration.html">Engines Configuration</a>
+</li>
+                                    
+<li >
+    <a href="floating.html">Floating Controller</a>
+</li>
+                                </ul>
+                            </li>
+                            <li >
+                                <a href="faq.html">FAQ</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="settings.html">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="engines-configuration.html">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#client-configuration">Client Configuration</a></li>
+            <li><a href="#checkupdates">.CheckUpdates</a></li>
+            <li><a href="#developmentmode">.DevelopmentMode</a></li>
+            <li><a href="#networkproxy">.NetworkProxy</a></li>
+            <li><a href="#scriptsfolder">.ScriptsFolder</a></li>
+            <li><a href="#uploaderrorlogs">.UploadErrorLogs</a></li>
+            <li><a href="#uialwaysloadfragments">.ui.AlwaysLoadFragments</a></li>
+            <li><a href="#uiautoopendefaultunit">.ui.AutoOpenDefaultUnit</a></li>
+            <li><a href="#uidonotreplaceviews">.ui.DoNotReplaceViews</a></li>
+            <li><a href="#uiexpandtreenodesonfiltering">.ui.ExpandTreeNodesOnFiltering</a></li>
+            <li><a href="#uikeyboardshortcutsfile">.ui.KeyboardShortcutsFile</a></li>
+            <li><a href="#uiloggermaxlength">.ui.LoggerMaxLength</a></li>
+            <li><a href="#uipreferrealaddressesindialogs">.ui.PreferRealAddressesInDialogs</a></li>
+            <li><a href="#uiprojectunitsync">.ui.ProjectUnitSync</a></li>
+            <li><a href="#uishowwarningnotificationsinstatus">.ui.ShowWarningNotificationsInStatus</a></li>
+            <li><a href="#uigraphsautogenerate">.ui.graphs.AutoGenerate</a></li>
+            <li><a href="#uigraphskeepinmaindock">.ui.graphs.KeepInMainDock</a></li>
+            <li><a href="#uigraphslockview">.ui.graphs.LockView</a></li>
+            <li><a href="#uinativedisabletypepreparsing">.ui.native.DisableTypePreparsing</a></li>
+            <li><a href="#uistatemainshellbounds">.ui.state.MainShellBounds</a></li>
+            <li><a href="#uitextallowlinewrapping">.ui.text.AllowLineWrapping</a></li>
+            <li><a href="#uitextcharactersperlinemax">.ui.text.CharactersPerLineMax</a></li>
+            <li><a href="#uitextcharacterswrap">.ui.text.CharactersWrap</a></li>
+            <li><a href="#uitextdisplayeolateod">.ui.text.DisplayEolAtEod</a></li>
+            <li><a href="#uitextnavigationbarposition">.ui.text.NavigationBarPosition</a></li>
+            <li><a href="#uitextscrolllinesize">.ui.text.ScrollLineSize</a></li>
+            <li><a href="#uitextcfgshowaddresses">.ui.text.cfg.ShowAddresses</a></li>
+            <li><a href="#uitextcfgshowbytescount">.ui.text.cfg.ShowBytesCount</a></li>
+            <li><a href="#uitreebucketflatmaxelements">.ui.tree.BucketFlatMaxElements</a></li>
+            <li><a href="#uitreebucketflatthreshold">.ui.tree.BucketFlatThreshold</a></li>
+            <li><a href="#uitreebuckettreemaxelements">.ui.tree.BucketTreeMaxElements</a></li>
+            <li><a href="#uitreebuckettreethreshold">.ui.tree.BucketTreeThreshold</a></li>
+            <li><a href="#uitreeuseexplicitdefaultpackage">.ui.tree.UseExplicitDefaultPackage</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<h1 id="client-configuration">Client Configuration<a class="headerlink" href="#client-configuration" title="Permanent link">&para;</a></h1>
+<p>The UI client stores its <em>client configuration</em>, also known as the front-end configuration, in <code>bin/jeb-client.cfg</code>. The configuration file is a key-value store where keys are fully-qualified identifiers that start with a leading dot.</p>
+<p>The public keys can safely be changed by a user. They are accessible in the <em>Options</em> dialog, <em>Advanced</em> mode, panel <em>Client</em>.</p>
+<p><a href="img/jeb-options-advanced-client.png"><img alt="" src="img/jeb-options-advanced-client.png" /></a></p>
+<h3 id="checkupdates"><code>.CheckUpdates</code><a class="headerlink" href="#checkupdates" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Let JEB automatically check for software updates (requires an Internet connection)</p>
+<p><strong>Type and Default</strong>: Boolean(true)</p>
+<h3 id="developmentmode"><code>.DevelopmentMode</code><a class="headerlink" href="#developmentmode" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Increase verbosity and error messages. Recommended when developing JEB Extensions (plugins or scripts).</p>
+<p><strong>Type and Default</strong>: Boolean(false)</p>
+<h3 id="networkproxy"><code>.NetworkProxy</code><a class="headerlink" href="#networkproxy" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Network proxy settings for JEB client components. The format of this property is: 'type|hostname|port|user|pass|whitelist'.</p>
+<ul>
+<li>
+<p>type can be direct (no proxy), http, or socks</p>
+</li>
+<li>
+<p>hostname and port are mandatory for non-direct proxy types</p>
+</li>
+<li>
+<p>user and password are optional (needed only if your proxy requires authentication)</p>
+</li>
+<li>
+<p>whitelist is an optional list of domains/IPs (with support for the wildcard character *) for which no proxy connection should be used (always direct connect)</p>
+</li>
+</ul>
+<p><strong>Type and Default</strong>: String("")</p>
+<h3 id="scriptsfolder"><code>.ScriptsFolder</code><a class="headerlink" href="#scriptsfolder" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Folder containing JEB client scripts written in Python</p>
+<p><strong>Type and Default</strong>: Path("$JEB_HOME/scripts")</p>
+<h3 id="uploaderrorlogs"><code>.UploadErrorLogs</code><a class="headerlink" href="#uploaderrorlogs" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Securely upload error logs to PNF Software error server</p>
+<p><strong>Type and Default</strong>: Boolean(true)</p>
+<h3 id="uialwaysloadfragments"><code>.ui.AlwaysLoadFragments</code><a class="headerlink" href="#uialwaysloadfragments" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Always load view fragments (leave to false to let lazy fragments load their data only they are visualized by the user)</p>
+<p><strong>Type and Default</strong>: Boolean(false)</p>
+<h3 id="uiautoopendefaultunit"><code>.ui.AutoOpenDefaultUnit</code><a class="headerlink" href="#uiautoopendefaultunit" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Upon processing a new file artifact, the default unit (internal rule set) will be opened - and the default fragment potentially opened as well</p>
+<p><strong>Type and Default</strong>: Boolean(true)</p>
+<h3 id="uidonotreplaceviews"><code>.ui.DoNotReplaceViews</code><a class="headerlink" href="#uidonotreplaceviews" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Create a new fragment when visualizing a type of document already opened in the workspace (instead of replacing it)</p>
+<p><strong>Type and Default</strong>: Boolean(true)</p>
+<h3 id="uiexpandtreenodesonfiltering"><code>.ui.ExpandTreeNodesOnFiltering</code><a class="headerlink" href="#uiexpandtreenodesonfiltering" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Expand matching tree nodes when applying a string filter</p>
+<p><strong>Type and Default</strong>: Boolean(true)</p>
+<h3 id="uikeyboardshortcutsfile"><code>.ui.KeyboardShortcutsFile</code><a class="headerlink" href="#uikeyboardshortcutsfile" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Location of the custom keyboard shortcuts file</p>
+<p><strong>Type and Default</strong>: Path("jeb-shortcuts.cfg")</p>
+<h3 id="uiloggermaxlength"><code>.ui.LoggerMaxLength</code><a class="headerlink" href="#uiloggermaxlength" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Maximum log buffer size in characters (older logger lines get discarded)</p>
+<p><strong>Type and Default</strong>: Integer(524288){0+}</p>
+<h3 id="uipreferrealaddressesindialogs"><code>.ui.PreferRealAddressesInDialogs</code><a class="headerlink" href="#uipreferrealaddressesindialogs" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: In dialogs displaying addresses (eg, cross-references), always display real (internal) addresses over user-friendly addresses that may be provided by plugins</p>
+<p><strong>Type and Default</strong>: Boolean(false)</p>
+<h3 id="uiprojectunitsync"><code>.ui.ProjectUnitSync</code><a class="headerlink" href="#uiprojectunitsync" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Keep the unit that generated the currently visualized item visible in the Project tree</p>
+<p><strong>Type and Default</strong>: Boolean(false)</p>
+<h3 id="uishowwarningnotificationsinstatus"><code>.ui.ShowWarningNotificationsInStatus</code><a class="headerlink" href="#uishowwarningnotificationsinstatus" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Show important notifications by flashing a Warning sign in the status bar</p>
+<p><strong>Type and Default</strong>: Boolean(true)</p>
+<h3 id="uigraphsautogenerate"><code>.ui.graphs.AutoGenerate</code><a class="headerlink" href="#uigraphsautogenerate" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Auto-generate the global graph upon processing a binary file</p>
+<p><strong>Type and Default</strong>: Boolean(false)</p>
+<h3 id="uigraphskeepinmaindock"><code>.ui.graphs.KeepInMainDock</code><a class="headerlink" href="#uigraphskeepinmaindock" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Keep the global graph docked in the main shell instead of being in a floating modeless dialog</p>
+<p><strong>Type and Default</strong>: Boolean(true)</p>
+<h3 id="uigraphslockview"><code>.ui.graphs.LockView</code><a class="headerlink" href="#uigraphslockview" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Lock the global graph: prevent auto-moving/sync'ing with the currently active method or code item</p>
+<p><strong>Type and Default</strong>: Boolean(false)</p>
+<h3 id="uinativedisabletypepreparsing"><code>.ui.native.DisableTypePreparsing</code><a class="headerlink" href="#uinativedisabletypepreparsing" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Disable native type pre-parsing (syntax validation) in type edition dialogs</p>
+<p><strong>Type and Default</strong>: Boolean(false)</p>
+<h3 id="uistatemainshellbounds"><code>.ui.state.MainShellBounds</code><a class="headerlink" href="#uistatemainshellbounds" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Bounds of the main shell. Leave blank for default; else: -1=maximized, or a set of "x,y,w,h" to remember position and size)</p>
+<p><strong>Type and Default</strong>: String("")</p>
+<h3 id="uitextallowlinewrapping"><code>.ui.text.AllowLineWrapping</code><a class="headerlink" href="#uitextallowlinewrapping" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Wrap overly long lines</p>
+<p><strong>Type and Default</strong>: Boolean(false)</p>
+<h3 id="uitextcharactersperlinemax"><code>.ui.text.CharactersPerLineMax</code><a class="headerlink" href="#uitextcharactersperlinemax" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Maximum number of characters per line before forcing a line-wrap (whether or not line wrapping is enabled)</p>
+<p><strong>Type and Default</strong>: Integer(4000){0+}</p>
+<h3 id="uitextcharacterswrap"><code>.ui.text.CharactersWrap</code><a class="headerlink" href="#uitextcharacterswrap" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Limit of a line before wrapping, if line wrap is enabled</p>
+<p><strong>Type and Default</strong>: Integer(-1)</p>
+<h3 id="uitextdisplayeolateod"><code>.ui.text.DisplayEolAtEod</code><a class="headerlink" href="#uitextdisplayeolateod" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Display an extra line at the end of a text document</p>
+<p><strong>Type and Default</strong>: Boolean(true)</p>
+<h3 id="uitextnavigationbarposition"><code>.ui.text.NavigationBarPosition</code><a class="headerlink" href="#uitextnavigationbarposition" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Position of the navigation bar: 1=top, 2=right (default), 3=bottom, 4=left</p>
+<p><strong>Type and Default</strong>: Integer(2){0-4}</p>
+<h3 id="uitextscrolllinesize"><code>.ui.text.ScrollLineSize</code><a class="headerlink" href="#uitextscrolllinesize" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Number of lines scrolled on a mouse-whell scroll action</p>
+<p><strong>Type and Default</strong>: Integer(2)</p>
+<h3 id="uitextcfgshowaddresses"><code>.ui.text.cfg.ShowAddresses</code><a class="headerlink" href="#uitextcfgshowaddresses" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Show addresses in control flow graph views</p>
+<p><strong>Type and Default</strong>: Boolean(false)</p>
+<h3 id="uitextcfgshowbytescount"><code>.ui.text.cfg.ShowBytesCount</code><a class="headerlink" href="#uitextcfgshowbytescount" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Show bytes in control flow graph views</p>
+<p><strong>Type and Default</strong>: Integer(0)</p>
+<h3 id="uitreebucketflatmaxelements"><code>.ui.tree.BucketFlatMaxElements</code><a class="headerlink" href="#uitreebucketflatmaxelements" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Maximum number of elements in a single artificial bucket</p>
+<p><strong>Type and Default</strong>: Integer(500){0+}</p>
+<h3 id="uitreebucketflatthreshold"><code>.ui.tree.BucketFlatThreshold</code><a class="headerlink" href="#uitreebucketflatthreshold" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Element count threshold that will trigger the creation of buckets in tree viewers with flat structures (eg, native code hierarchies)</p>
+<p><strong>Type and Default</strong>: Integer(2000){0+}</p>
+<h3 id="uitreebuckettreemaxelements"><code>.ui.tree.BucketTreeMaxElements</code><a class="headerlink" href="#uitreebuckettreemaxelements" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Maximum number of elements in a single artificial bucket</p>
+<p><strong>Type and Default</strong>: Integer(200){0+}</p>
+<h3 id="uitreebuckettreethreshold"><code>.ui.tree.BucketTreeThreshold</code><a class="headerlink" href="#uitreebuckettreethreshold" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Element count threshold that will trigger the creation of buckets in tree viewers with hierarchical structures (eg, Dalvik hierarchies)</p>
+<p><strong>Type and Default</strong>: Integer(200){0+}</p>
+<h3 id="uitreeuseexplicitdefaultpackage"><code>.ui.tree.UseExplicitDefaultPackage</code><a class="headerlink" href="#uitreeuseexplicitdefaultpackage" title="Permanent link">&para;</a></h3>
+<p><strong>Description</strong>: Use a default package when artificial buckets in tree viewers are created</p>
+<p><strong>Type and Default</strong>: Boolean(true)</p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>JEB &copy; <a href="https://www.pnfsoftware.com">PNF Software, Inc.</a> 2015, 2019 - Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

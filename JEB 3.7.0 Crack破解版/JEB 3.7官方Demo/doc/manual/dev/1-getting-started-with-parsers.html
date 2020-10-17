@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <meta name="author" content="PNF Software">
+        <link rel="canonical" href="https://www.pnfsoftware.com/jeb2/manual/dev/1-getting-started-with-parsers.html">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Part 1: Getting Started with Parsers - JEB Decompiler</title>
+        <link href="../css/bootstrap-custom.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap-3.0.3.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+
+                <!-- Collapsed navigation -->
+                <div class="navbar-header">
+                    <!-- Expander button -->
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="https://www.pnfsoftware.com/jeb">JEB Decompiler</a>
+                </div>
+
+                <!-- Expanded navigation -->
+                <div class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li >
+                                <a href="../index.html">Getting Started</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Using JEB <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../actions.html">Common Actions</a>
+</li>
+                                    
+<li >
+    <a href="../views.html">Common Views</a>
+</li>
+                                    
+<li >
+    <a href="../decompiling.html">Decompiling</a>
+</li>
+                                    
+<li >
+    <a href="../debugging.html">Debugging</a>
+</li>
+                                    
+<li >
+    <a href="../android.html">Android App Analysis</a>
+</li>
+                                    
+<li >
+    <a href="../android-debugging.html">Android App Debugging</a>
+</li>
+                                    
+<li >
+    <a href="../native.html">Native Code Analysis</a>
+</li>
+                                    
+<li >
+    <a href="../native-debugging.html">Native Code Debugging</a>
+</li>
+                                    
+<li >
+    <a href="../webassembly.html">WebAssembly Modules</a>
+</li>
+                                    
+<li >
+    <a href="../ethereum.html">Ethereum Smart Contracts</a>
+</li>
+                                    
+<li >
+    <a href="../misc.html">Miscellaneous</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Developing with JEB <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="introducing-jeb-extensions.html">Introducing JEB Extensions</a>
+</li>
+                                    
+<li >
+    <a href="writing-client-scripts.html">Writing Client Scripts</a>
+</li>
+                                    
+  <li class="dropdown-submenu">
+    <a href="#">Writing Parsers (Tutorial Series)</a>
+    <ul class="dropdown-menu">
+            
+<li class="active">
+    <a href="1-getting-started-with-parsers.html">Part 1: Getting Started with Parsers</a>
+</li>
+            
+<li >
+    <a href="2-creating-simple-parser.html">Part 2: Creating a Simple Parser</a>
+</li>
+            
+<li >
+    <a href="3-documents-delegation.html">Part 3: Documents and Delegation</a>
+</li>
+            
+<li >
+    <a href="4-tables-trees.html">Part 4: Tables and Trees</a>
+</li>
+            
+<li >
+    <a href="5-development-tips.html">Part 5: Development Tips</a>
+</li>
+            
+<li >
+    <a href="6-releasing-plugin.html">Part 6: Releasing a Plugin</a>
+</li>
+            
+<li >
+    <a href="7-unit-interactivity.html">Part 7: Interactivity</a>
+</li>
+            
+<li >
+    <a href="8-more-interactivity.html">Part 8: More on Interactivity</a>
+</li>
+    </ul>
+  </li>
+                                    
+<li >
+    <a href="writing-engines-plugins.html">Writing Engines Plugins</a>
+</li>
+                                    
+<li >
+    <a href="writing-front-ends.html">Writing Front-Ends</a>
+</li>
+                                    
+<li >
+    <a href="other-resources.html">Additional Resources</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Configuration <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li >
+    <a href="../settings.html">Settings</a>
+</li>
+                                    
+<li >
+    <a href="../client-configuration.html">Client Configuration</a>
+</li>
+                                    
+<li >
+    <a href="../engines-configuration.html">Engines Configuration</a>
+</li>
+                                    
+<li >
+    <a href="../floating.html">Floating Controller</a>
+</li>
+                                </ul>
+                            </li>
+                            <li >
+                                <a href="../faq.html">FAQ</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li >
+                                <a rel="next" href="writing-client-scripts.html">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li >
+                                <a rel="prev" href="2-creating-simple-parser.html">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+                <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+        <li class="main active"><a href="#getting-started-with-parsers">Getting Started with Parsers</a></li>
+            <li><a href="#load-a-parser">Load a parser</a></li>
+            <li><a href="#check-if-a-parser-is-loaded">Check if a parser is loaded</a></li>
+            <li><a href="#develop-a-new-parser">Develop a new parser</a></li>
+    </ul>
+</div></div>
+                <div class="col-md-9" role="main">
+
+<p><em>JEB Plugin Development Tutorial part 1/8</em></p>
+<h1 id="getting-started-with-parsers">Getting Started with Parsers<a class="headerlink" href="#getting-started-with-parsers" title="Permanent link">&para;</a></h1>
+<p>The JEB API provides the ability to develop <em>parser plugins</em> (referred to as <em>parsers</em>) for any file type. All native JEB plugins use that same API.</p>
+<p>A parser can process binary data, textual data, or even the output of other parsers, which is the case for debugger or decompiler plugins.</p>
+<p>This series of tutorials will help developers understand the major features and organization of the JEB API, and will guide them through the development of their own parsers and plugins. We will use the official front-end - the <em>UI client</em> - throughout this series, although extensions development is in no way constricted to the use of a particular front-end.</p>
+<h2 id="load-a-parser">Load a parser<a class="headerlink" href="#load-a-parser" title="Permanent link">&para;</a></h2>
+<p>There are two ways to load plugins.</p>
+<h3 id="release-model">Release model<a class="headerlink" href="#release-model" title="Permanent link">&para;</a></h3>
+<p>Copy the jar plugin to your <em>plugins</em> folder. You can configure your plugins folder via the <em>Edit, Options</em> menu (or <em>Preferences</em> on Mac). Refer to <a href="../settings#simple-options">that section</a> for additional details.</p>
+<p><a href="img/Plugin1-01.png"><img alt="" src="img/Plugin1-01.png" /></a></p>
+<p><a href="img/Plugin1-02.png"><img alt="" src="img/Plugin1-02.png" /></a></p>
+<p>If you are using third-party (aka, non native) plugins, the release model is easy to use. For example, head over to our GitHub account. You will find a few open-source parsers, such as an <a href="https://github.com/pnfsoftware/jeb2-plugin-oat">Android OAT parser</a>. Instead of compiling them from source, you may decide to use the pre-compiled jars, available in the release  section.</p>
+<p>With the release model, the classname is defined in the Jar manifest. There is nothing to configure in the options.</p>
+<p>If you have a jar plugin that you would like to use, <strong>simply drop it in the plugins folder</strong>. Then, restart JEB. Your plugin will be automatically loaded.</p>
+<h3 id="development-model">Development model<a class="headerlink" href="#development-model" title="Permanent link">&para;</a></h3>
+<p>In that case, you need to specify the classpath of your plugin, as well as its classname (that is, the fully-qualified name of the plugin class, as we will describe later). You can modify these options in the same dialog box, in the Development tab:</p>
+<p><a href="img/Plugin1-03.png"><img alt="" src="img/Plugin1-03.png" /></a></p>
+<p>The development model is ideal when actively developing a plugin, and dealing with compiled Java classfiles that have not been packaged yet.</p>
+<h2 id="check-if-a-parser-is-loaded">Check if a parser is loaded<a class="headerlink" href="#check-if-a-parser-is-loaded" title="Permanent link">&para;</a></h2>
+<p>As we explained <a href="../scripts#plugins">earlier in this guide</a>, You can check if your parser is loaded by opening the parsers dialog:</p>
+<p><a href="img/Plugin1-04.png"><img alt="" src="img/Plugin1-04.png" /></a></p>
+<p><a href="img/Plugin1-05.png"><img alt="" src="img/Plugin1-05.png" /></a></p>
+<p>Note that you may also disable parsers, by ticking or unticking the checkbox in front of the parser type.</p>
+<h2 id="develop-a-new-parser">Develop a new parser<a class="headerlink" href="#develop-a-new-parser" title="Permanent link">&para;</a></h2>
+<p>JEB plugins are developed in Java. We recommend you to use the Eclipse IDE for plugins development.</p>
+<ul>
+<li>
+<p>Create a new Java project</p>
+<ul>
+<li>In Eclipse: <em>File, New, Java Project</em> - use the default settings</li>
+</ul>
+</li>
+<li>
+<p>Add the API to your project. The API can be included by adding the Jar reference to your build path</p>
+<ul>
+<li>In Eclipse: right click on your project, select <em>Build path, Add external archives</em>. The API file is contained in the JEB application under <code>bin/cl/jeb.jar</code>.</li>
+</ul>
+</li>
+<li>
+<p>Link the javadoc to jeb.jar: it is located in <code>doc/apidoc.zip</code></p>
+<ul>
+<li>In Eclipse: right click on your project and select Build path, configure build path. Expand jeb.jar and edit the javadoc location</li>
+<li>Set the <em>Archive path</em> textbobx to point to your <code>apidoc.zip</code> file</li>
+<li>Set the <em>Path within Archive</em> textbox to <code>reference</code></li>
+</ul>
+</li>
+<li>
+<p>Create a new class that implements <a href="https://www.pnfsoftware.com/jeb/apidoc/reference/com/pnfsoftware/jeb/core/IPlugin.html">IPlugin</a>: it will be the entry point of your project.</p>
+<ul>
+<li>In Eclipse: the project is automatically compiled in a bin/ directory</li>
+</ul>
+</li>
+</ul>
+<p>For example:</p>
+<pre><code class="java">package com.jeb.sample;
+
+import com.pnfsoftware.jeb.core.IPlugin;  // simplest plugin type
+
+public class SamplePlugin implements IPlugin {
+    @Override
+    public IPluginInformation getPluginInformation() {
+        return new PluginInformation(&quot;Sample&quot;, &quot;Description&quot;, &quot;PNF Software&quot;, Version.create(1, 0));
+    }
+}
+</code></pre>
+
+<ul>
+<li>Open JEB and add your project bin folder to the <em>Plugin Classpath</em> entries and add the classname: <code>com.jeb.sample.SamplePlugin</code>.</li>
+</ul>
+<p><a href="img/Plugin1-06.png"><img alt="" src="img/Plugin1-06.png" /></a></p>
+<ul>
+<li>Restart JEB, you should see a message in the Logger panel: <code>Development plugin loaded: class com.jeb.sample.SamplePlugin</code></li>
+</ul>
+<p><a href="img/Plugin1-08.png"><img alt="" src="img/Plugin1-08.png" /></a></p>
+<p>This means that your project is correctly configured and that you can start the development of your plugin!</p>
+<p><strong>Next: <a href="2-creating-simple-parser.html">Part 2</a></strong></p></div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>JEB &copy; <a href="https://www.pnfsoftware.com">PNF Software, Inc.</a> 2015, 2019 - Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="Search Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Search</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form role="form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="Keyboard Shortcuts Modal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="exampleModalLabel">Keyboard Shortcuts</h4>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

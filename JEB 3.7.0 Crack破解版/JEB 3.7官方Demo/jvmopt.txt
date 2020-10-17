@@ -1,0 +1,1 @@
+-Xss4M -Xmx8G
